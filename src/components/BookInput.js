@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBook } from '../redux/books/booksReducer';
+import { addBookAPI } from '../redux/books/booksReducer';
 
 const BookInput = () => {
   const [book, setBook] = useState(
@@ -73,7 +73,7 @@ const BookInput = () => {
   const submitBookToStore = (e) => {
     e.preventDefault();
     if (validForm()) {
-      dispatch(addBook(book));
+      dispatch(addBookAPI(book));
       setBook(
         {
           id: uuidv4(),
