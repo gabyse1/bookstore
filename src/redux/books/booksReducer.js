@@ -14,6 +14,8 @@ const getBooksAPI = () => async (dispatch) => {
         id: ele[0],
         title: ele[1][0].title.title,
         author: ele[1][0].title.author,
+        totalCaps: ele[1][0].title.totalCaps,
+        currentCap: ele[1][0].title.currentCap,
         category: ele[1][0].category,
       }));
       dispatch({
@@ -28,7 +30,12 @@ const addBookAPI = (bookInfo) => async (dispatch) => {
     method: 'POST',
     body: JSON.stringify({
       item_id: bookInfo.id,
-      title: { title: bookInfo.title, author: bookInfo.author },
+      title: {
+        title: bookInfo.title,
+        author: bookInfo.author,
+        totalCaps: bookInfo.totalCaps,
+        currentCap: bookInfo.currentCap,
+      },
       category: bookInfo.category,
     }),
     headers: {
