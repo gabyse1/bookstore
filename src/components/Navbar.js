@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { ImUser } from 'react-icons/im';
 
 const Navbar = () => {
   const links = [
@@ -14,6 +15,9 @@ const Navbar = () => {
           links.map((link) => <li key={link.id} className="navbar__menu-item"><NavLink to={link.path} className="nav-link">{link.text}</NavLink></li>)
         }
       </ul>
+      <div className="navbar__user">
+        <ImUser className="navbar__user-icon" />
+      </div>
     </nav>
   );
 };
