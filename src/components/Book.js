@@ -1,12 +1,12 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksReducer';
+import { removeBookAPI } from '../redux/books/booksReducer';
 
 const Book = ({ book }) => {
   const dispatch = useDispatch();
 
   const removeBookFromStore = (e) => {
-    dispatch(removeBook(e.target.getAttribute('data-id')));
+    dispatch(removeBookAPI(e.target.getAttribute('data-id')));
   };
 
   return (
