@@ -30,7 +30,7 @@
   width: 2rem;
   height: 2rem;
   margin-left: auto;
-  border: 1px solid rgba($gray-light, 1);
+  border: 1px solid rgba($gray-dark, 0.25);
   border-radius: 50%;
   color: $accent;
 
@@ -45,21 +45,23 @@
 
   > * {
     padding: 0 0.75rem;
-    border-left: 1px solid rgba($gray-light, 1);
+    border-left: 1px solid rgba($gray-dark, 0.25);
 
     .nav-link {
       font-size: 0.85rem;
       line-height: 1.2;
-      color: rgba($gray-dark, 0.75);
+      color: $gray-dark;
+      font-weight: 400;
       text-decoration: none;
 
       &:hover {
         color: $gray-dark;
+        font-weight: 500;
       }
 
       &.active {
         color: $gray-dark;
-        font-weight: 400;
+        font-weight: 500;
       }
     }
   }

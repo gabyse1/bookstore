@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: $gray;
+  background-color: $gray-light;
 
   @include font;
   @include flex-column;
@@ -52,7 +52,7 @@ body {
 
     section {
       padding: 1.5rem 0;
-      border-bottom: 1px solid rgba($gray-light, 1);
+      border-bottom: 1px solid rgba($gray-dark, 0.5);
 
       &:last-of-type {
         border-bottom: none;
