@@ -1,0 +1,17 @@
+/* FORM VALIDATION */
+.form__message {
+  display: none;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #05d3b1;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+}
+
+.visible {
+  display: block;
+}
