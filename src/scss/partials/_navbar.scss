@@ -1,0 +1,66 @@
+.navbar__box {
+  height: 60px;
+  padding: 0.5rem 5%;
+  background-color: $white;
+  box-shadow: 0 1px 5px rgba($gray-dark, 0.25);
+
+  @include flex-row;
+
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  @include mq($mw:56.25rem) {
+    padding: 0.5rem 10%;
+  }
+}
+
+.navbar__brand {
+  margin-right: 2rem;
+  color: $accent;
+  text-decoration: none;
+
+  @include font($fs:1.75rem, $lh:2.4rem, $fw:600);
+}
+
+.navbar__user {
+  width: 2rem;
+  height: 2rem;
+  margin-left: auto;
+  border: 1px solid rgba($gray-light, 1);
+  border-radius: 50%;
+  color: $accent;
+
+  @include flex-row;
+  @include flex-center;
+}
+
+.navbar__menu-list {
+  list-style: none;
+
+  @include flex-row;
+
+  > * {
+    padding: 0 0.75rem;
+    border-left: 1px solid rgba($gray-light, 1);
+
+    .nav-link {
+      font-size: 0.85rem;
+      line-height: 1.2;
+      color: rgba($gray-dark, 0.75);
+      text-decoration: none;
+
+      &:hover {
+        color: $gray-dark;
+      }
+
+      &.active {
+        color: $gray-dark;
+        font-weight: 400;
+      }
+    }
+  }
+}

@@ -1,3 +1,36 @@
+.book__form {
+  width: 100%;
+
+  @include flex-column;
+  @include flex-center;
+
+  > * {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  input,
+  .book__form-category {
+    padding: 0.5rem;
+    background-color: $white;
+    border: none;
+    outline: 1px solid rgba($gray-dark, 0.25);
+    color: $gray-dark;
+
+    @include font;
+  }
+
+  input:focus,
+  .book__form-category:focus {
+    outline: 1px solid rgba($accent, 0.6);
+  }
+}
+
 /* FORM VALIDATION */
 .form__message {
   display: none;
@@ -9,9 +42,173 @@
 }
 
 .error-message {
-  color: red;
+  color: #fd0418;
 }
 
 .visible {
   display: block;
+}
+
+.book__list {
+  list-style: none;
+
+  .book__list-item {
+    @include flex-column;
+
+    flex-wrap: wrap;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid rgba($gray-light, 1);
+    background-color: $white;
+
+    > * {
+      width: 100%;
+      margin-bottom: 1.5rem;
+
+      @include flex-column;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .list__item-progress-graphic {
+      @include flex-row;
+
+      align-items: center;
+
+      .progress__perc {
+        width: 55px;
+        height: 55px;
+        margin-right: 0.5rem;
+
+        svg {
+          width: 53px;
+          height: 53px;
+          display: block;
+
+          circle {
+            width: 53px;
+            height: 53px;
+            fill: none;
+            stroke-width: 3;
+            transform: translate(1.5px, 1.5px);
+            stroke-linecap: round;
+            stroke-dasharray: 160;
+          }
+
+          circle:nth-child(1) {
+            stroke-dashoffset: 0;
+            stroke: rgba($gray-dark, 0.25);
+          }
+
+          circle:nth-child(2) {
+            stroke: $accent;
+            animation: dash 1.5s linear forwards;
+          }
+
+          @keyframes dash {
+            from {
+              stroke-dashoffset: 160;
+            }
+
+            to {
+              stroke-dashoffset: calc(160 - (160 * 64) / 100);
+            }
+          }
+        }
+      }
+
+      .progress__desc {
+        @include flex-column;
+      }
+
+      .progress__number {
+        font-size: 2rem;
+        color: $dark;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .list__item-progress-manage {
+      justify-content: center;
+
+      > * {
+        margin-bottom: 0.5rem;
+      }
+
+      .progress__chapter {
+        font-size: 1rem;
+        font-weight: 400;
+        color: $dark;
+      }
+    }
+
+    .list__item-details {
+      > * {
+        margin-bottom: 0.25rem;
+      }
+
+      .book-title {
+        color: $dark;
+        font-size: 1.375rem;
+      }
+
+      .book-author {
+        color: $accent;
+      }
+
+      .book-tags {
+        list-style: none;
+        margin-top: 1rem;
+        margin-bottom: 0;
+
+        @include flex-row;
+
+        > * {
+          padding: 0 1rem;
+          border-right: 1px solid $white;
+
+          &:first-of-type {
+            padding: 0 1rem 0 0;
+          }
+
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+    }
+
+    @include mq ($mw:40.625rem) {
+      @include flex-row;
+
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+
+      > * {
+        width: auto;
+        padding-right: 1rem;
+        margin-bottom: 0;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      .list__item-details {
+        width: 50%;
+      }
+
+      .list__item-progress-graphic,
+      .list__item-progress-manage {
+        width: 25%;
+      }
+    }
+
+    @include mq($mw:56.25rem) {
+      padding: 1rem 3rem;
+    }
+  }
 }
