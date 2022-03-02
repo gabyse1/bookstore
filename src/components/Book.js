@@ -1,6 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBookAPI } from '../redux/books/booksReducer';
+import ProgressCircle from './ProgressCircle';
 
 const Book = ({ book }) => {
   const dispatch = useDispatch();
@@ -8,6 +9,8 @@ const Book = ({ book }) => {
   const removeBookFromStore = (e) => {
     dispatch(removeBookAPI(e.target.getAttribute('data-id')));
   };
+
+  const getCurrentCapPercentage = (cc, tc) => (Math.floor((cc / tc) * 100).toString());
 
   return (
     <li className="book__list-item">
@@ -21,6 +24,9 @@ const Book = ({ book }) => {
         <span className="book-author">
           { book.author }
         </span>
+        <span className="book-chapters">
+          { book.totalCaps.toString().concat(' caps.') }
+        </span>
         <ul className="book-tags">
           <li className="item__tag"><button type="button" className="btn__link" data-id={book.id}>Comments</button></li>
           <li className="item__tag"><button type="button" className="btn__link" data-id={book.id} onClick={removeBookFromStore}>Remove</button></li>
@@ -31,17 +37,17 @@ const Book = ({ book }) => {
         <div className="progress__perc">
           <svg>
             <circle cx="25" cy="25" r="25" />
-            <circle cx="25" cy="25" r="25" />
+            <ProgressCircle capsData={[book.currentCap, book.totalCaps]} />
           </svg>
         </div>
         <div className="progress__desc">
-          <span className="progress__number">64%</span>
+          <span className="progress__number">{getCurrentCapPercentage(book.currentCap, book.totalCaps).concat('%')}</span>
           <span>Completed</span>
         </div>
       </div>
       <div className="list__item-progress-manage">
         <span className="progress__title">CURRENT CHAPTER</span>
-        <span className="progress__chapter">CHAPTER 17</span>
+        <span className="progress__chapter">{'CHAPTER '.concat(book.currentCap)}</span>
         <button type="button" className="btn">UPDATE PROGRESS</button>
       </div>
     </li>
@@ -54,6 +60,8 @@ Book.propTypes = {
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
+    totalCaps: PropTypes.number.isRequired,
+    currentCap: PropTypes.number.isRequired,
   }).isRequired,
 };
 

@@ -1,26 +1,33 @@
-# Bookstore1
+# Bookstore
 It is a bookstore MVP that allows users to add, delete, and list available books.
 
+![screenshot desktop](./bs-screenshot-desktop.png)
 
+![screenshot mobile](./bs-screenshot-mobile.png)
 
 
 ## Features
 
 The website displays a bookstore user interface using react components to:
 
-- Navigate between two pages, books and categories.
+- Navigate between two pages, books and categories (in construction).
+- Add a new book to the store through the form, which will validate the input data.
+- Delete a book by clicking the delete button corresponding to each book in the list.
+- Display a list of books saved in the redux store, this list is updated automatically when adding and removing books.
+- The website saves and retrieves book information from an API.
 
 
 ## Built With
 
 - JavaScript
-- React & Redux
+- React
+- Redux
 - SCSS
 
 
 ## Live Demo
 
-[Bookstore](https://gabyse1.github.io/bookstore1/)
+[Bookstore](https://gabyse1.github.io/bookstore/)
 
 
 ## Getting Started

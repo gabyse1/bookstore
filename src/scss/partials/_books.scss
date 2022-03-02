@@ -19,10 +19,17 @@
     padding: 0.5rem;
     background-color: $white;
     border: none;
-    outline: 1px solid rgba($gray-dark, 0.25);
-    color: $gray-dark;
+    outline: 1px solid rgba($gray-dark, 0.5);
+    color: $dark;
 
     @include font;
+  }
+
+  .form__label {
+    input {
+      margin-left: 1rem;
+      min-width: 200px;
+    }
   }
 
   input:focus,
@@ -58,7 +65,7 @@
     flex-wrap: wrap;
     padding: 1rem;
     margin: 0.5rem 0;
-    border: 1px solid rgba($gray-light, 1);
+    border: 1px solid rgba($gray-dark, 0.25);
     background-color: $white;
 
     > * {
@@ -104,17 +111,6 @@
 
           circle:nth-child(2) {
             stroke: $accent;
-            animation: dash 1.5s linear forwards;
-          }
-
-          @keyframes dash {
-            from {
-              stroke-dashoffset: 160;
-            }
-
-            to {
-              stroke-dashoffset: calc(160 - (160 * 64) / 100);
-            }
           }
         }
       }
@@ -180,7 +176,7 @@
       }
     }
 
-    @include mq ($mw:40.625rem) {
+    @include mq ($mw:43.75rem) {
       @include flex-row;
 
       justify-content: space-between;

@@ -8,6 +8,6 @@ const rootReducer = combineReducers({
   booksReducer,
 });
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(logger, thunk)));
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
 
 export default store;
