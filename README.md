@@ -1,7 +1,9 @@
 # Bookstore
 It is a bookstore MVP that allows users to add, delete, and list available books.
 
-![screenshot](./bs-screenshot.png)
+![screenshot desktop](./bs-screenshot-desktop.png)
+
+![screenshot mobile](./bs-screenshot-mobile.png)
 
 
 ## Features
