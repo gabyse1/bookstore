@@ -90,46 +90,18 @@
   .navbar__menu-bar {
     background-color: $white;
     transform: rotate(45deg);
-    
+
     &::before {
       background-color: $white;
       top: 0;
       transform: rotate(90deg);
     }
-    
+
     &::after {
       background-color: $white;
       top: 0;
       transform: rotate(90deg);
     }
-  }
-}
-
-.navbar__menu-list {
-  list-style: none;  
-  display: none;
-
-  > * {
-    padding: 0 1rem;
-    border-left: 1px solid rgba($gray-dark, 0.25);
-
-    .nav-link {
-      font-size: 0.85rem;
-      line-height: 1.2;
-      color: rgba($gray-dark, 0.6);
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 250ms ease-in;
-
-      &:hover,
-      &.active {
-        color: rgba($gray-dark, 1);
-      }
-    }
-  }
-
-  @include mq($mw: 43.75rem) {
-    @include flex-row;
   }
 }
 
@@ -163,5 +135,33 @@
         color: $white;
       }
     }
+  }
+}
+
+.navbar__menu-list {
+  list-style: none;
+  display: none;
+
+  > * {
+    padding: 0 1rem;
+    border-left: 1px solid rgba($gray-dark, 0.25);
+
+    .nav-link {
+      font-size: 0.85rem;
+      line-height: 1.2;
+      color: rgba($gray-dark, 0.6);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 250ms ease-in;
+
+      &:hover,
+      &.active {
+        color: rgba($gray-dark, 1);
+      }
+    }
+  }
+
+  @include mq($mw: 43.75rem) {
+    @include flex-row;
   }
 }
