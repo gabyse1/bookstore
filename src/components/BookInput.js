@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addBookAPI } from '../redux/books/booksReducer';
 
@@ -19,7 +19,14 @@ const BookInput = () => {
   const [msgStyles, setMsgStyles] = useState('');
   const books = useSelector((store) => store.booksReducer);
   const dispatch = useDispatch();
-  let timerId = 0;
+
+  useEffect(() => {
+    if (msg !== '') {
+      const timer = setTimeout(() => setMsgStyles(''), 10000);
+      return () => clearTimeout(timer);
+    }
+    return null;
+  }, [msg]);
 
   const validString = (str) => {
     if (str.match(/^[a-zA-Z0-9À-ÿ\u00f1\u00d1\u00E0\u00FC_:,&\- ]{1,100}$/)) return true;
@@ -32,14 +39,10 @@ const BookInput = () => {
   };
 
   const displayMessage = (type, mesg) => {
-    clearTimeout(timerId);
     setMsg(mesg);
     if (type === 'error') {
       setMsgStyles(' error-message visible');
     } else setMsgStyles(' visible');
-    timerId = setTimeout(() => {
-      setMsgStyles('');
-    }, 10000);
   };
 
   const existBook = () => {
