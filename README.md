@@ -55,8 +55,8 @@ To get a local copy up and running follow these simple example steps.
 👤 **Gabriela Sánchez Espirilla**
 
 - GitHub: [@gabyse1](https://github.com/gabyse1)
-- Twitter: [@gabyse0](https://twitter.com/gabyse0)
-- LinkedIn: [Gabriela](https://www.linkedin.com/in/gabriela-s%C3%A1nchez-espirilla-83011b225/)
+- Twitter: [@gse_sd](https://twitter.com/gse_sd)
+- LinkedIn: [gabyse](https://www.linkedin.com/in/gabyse/)
 
 
 ## 🤝 Contributing
