@@ -1,4 +1,4 @@
-const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/esaKasLZflBHzDw2HBOr';
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Ie7BacmV7MELYSIGQW82';
 
 const ADD_BOOK_TO_API = 'bookStore/books/ADD_BOOK_TO_API';
 const REMOVE_BOOK_FROM_API = 'bookStore/books/REMOVE_BOOK_FROM_API';
@@ -13,9 +13,9 @@ const getBooksAPI = () => async (dispatch) => {
       const newInitializeState = Object.entries(data).map((ele) => ({
         id: ele[0],
         title: ele[1][0].title.title,
-        author: ele[1][0].title.author,
         totalCaps: ele[1][0].title.totalCaps,
         currentCap: ele[1][0].title.currentCap,
+        author: ele[1][0].author,
         category: ele[1][0].category,
       }));
       dispatch({
@@ -32,10 +32,10 @@ const addBookAPI = (bookInfo) => async (dispatch) => {
       item_id: bookInfo.id,
       title: {
         title: bookInfo.title,
-        author: bookInfo.author,
         totalCaps: bookInfo.totalCaps,
         currentCap: bookInfo.currentCap,
       },
+      author: bookInfo.author,
       category: bookInfo.category,
     }),
     headers: {
